@@ -1,5 +1,6 @@
 # longest common subsequence - LCS
 # given two string find out longest common subsequence
+# https://leetcode.com/problems/longest-common-subsequence/
 
 class Solution:
 
