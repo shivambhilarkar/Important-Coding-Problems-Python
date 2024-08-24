@@ -3,9 +3,16 @@ from typing import Optional, List
 from collections import deque
 
 """
+Related Questions
+https://leetcode.com/problems/binary-tree-level-order-traversal/description/
 https://leetcode.com/problems/binary-tree-level-order-traversal-ii/description/
-Given the root of a binary tree, return the bottom-up level order traversal of its nodes' values.
-(i.e., from left to right, level by level from leaf to root).
+https://leetcode.com/problems/binary-tree-zigzag-level-order-traversal/description/
+https://leetcode.com/problems/maximum-depth-of-binary-tree/description/
+https://leetcode.com/problems/binary-tree-right-side-view/description/
+https://leetcode.com/problems/find-bottom-left-tree-value/description/
+
+Given the root of a binary tree, return the level order traversal of its nodes' values. 
+(i.e., from left to right, level by level).
 """
 
 
@@ -16,26 +23,21 @@ class TreeNode:
 
 
 class Solution:
-    def levelOrderBottom(self, root: Optional[TreeNode]) -> List[List[int]]:
-        level_order_traversal = self.traverse(root)
-        return level_order_traversal[::-1]  # we need to return reverse order in above question
-
-    def traverse(self, root: TreeNode) -> list:
+    def levelOrder(self, root: Optional[TreeNode]) -> List[List[int]]:
         if root == None:
-            return []
-
+            return root
+        result = []
         queue = deque()
         queue.append(root)
-        result = []
         while len(queue) != 0:
             size = len(queue)
             row = []
-            for _ in range(size):
+            for item in range(size):
                 current_node = queue.popleft()
                 row.append(current_node.val)
-                if current_node.left != None:
+                if current_node.left is not None:
                     queue.append(current_node.left)
-                if current_node.right != None:
+                if current_node.right is not None:
                     queue.append(current_node.right)
             result.append(row)
         return result
