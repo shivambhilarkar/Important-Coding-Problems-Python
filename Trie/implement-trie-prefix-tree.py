@@ -1,8 +1,11 @@
+"""
+https://leetcode.com/problems/implement-trie-prefix-tree/
+"""
+
 class Node:
     def __init__(self):
         self.children = [None] * 26
         self.is_ending = False
-
 
 class Trie:
     root = None
